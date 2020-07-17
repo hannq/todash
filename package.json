@@ -19,5 +19,8 @@
   "homepage": "https://github.com/hannq/todash#readme",
   "devDependencies": {
     "typescript": "^3.9.2"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
   }
 }
