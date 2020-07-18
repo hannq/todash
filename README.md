@@ -27,4 +27,4 @@ npm install todash --save-dev
 
 ## 协议
 
-`sim-react-redux` 遵循 `MIT` 协议。
+`Todash` 遵循 `MIT` 协议。
