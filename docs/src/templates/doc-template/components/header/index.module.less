@@ -1,0 +1,43 @@
+.wrapper {
+  padding-top: 64px;
+  .header {
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 1px 3px #ccc;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 16px;
+    .link-wrapper {
+      display: flex;
+      align-items: center;
+      &:hover {
+        text-decoration: none;
+      }
+      .logo {
+        width: 32px;
+        height: 32px;
+        margin-right: 16px;
+      }
+      .text {
+        height: 64px;
+        overflow: hidden;
+        color: rgba(0,0,0,.85);
+        font-size: 18px;
+        line-height: 64px;
+        white-space: nowrap;
+
+        font-weight: bolder;
+      }
+    }
+    .github-icon {
+      color: #333;
+      font-size: 32px;
+    }
+  }
+}

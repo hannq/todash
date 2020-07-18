@@ -1,1 +1,19 @@
+# dep
+node_modules
+
+# source
+docs
+examples
+practice
 src
+
+# source map
+dist/**/*.map
+
+# config
+.vscode
+.editorconfig
+tsconfig.json
+
+# incremental
+tsBuildInfoFile.json
