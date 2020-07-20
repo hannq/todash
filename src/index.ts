@@ -43,9 +43,9 @@ namespace Todash {
   export type UnionByPop<T> = Utils.UnionByPop<T>;
 
   /**
-   * 把自身（target）已有的属性 用 目标（source）的同名属性覆盖
+   * 把自身（source）已有的属性 用 目标（target）的同名属性覆盖
    */
-  export type AssignByOwnKey<T, S> = Utils.AssignByOwnKey<T, S>;
+  export type AssignByOwnKey<S, T> = Utils.AssignByOwnKey<S, T>;
 
   // ##################### tuple #####################
 

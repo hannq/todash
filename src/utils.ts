@@ -31,9 +31,9 @@ export type PopUnion<T> = OverloadUnion<T> extends (param: infer P) => any ? P :
 export type UnionByPop<T> = Exclude<T, PopUnion<T>>;
 
 /**
- * 把自身（target）已有的属性 用 目标（source）的同名属性覆盖
+ * 把自身（source）已有的属性 用 目标（target）的同名属性覆盖
  */
-export type AssignByOwnKey<T, S extends AnyObject> = { [K in keyof T]: S[K] };
+export type AssignByOwnKey<S, T extends AnyObject> = { [K in keyof S]: T[K] };
 
 /**
  * 将 数组/元组 转化为 union
