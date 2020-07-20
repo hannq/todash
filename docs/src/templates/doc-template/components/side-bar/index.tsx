@@ -27,7 +27,7 @@ const SideBar: React.SFC<IProps> = (props) => {
   const treeData = useMemo(() => menuList.map(({ title, children, ...rest }) => ({
     ...rest,
     title: <h4 className={styles.treeRoot}>{title}</h4>,
-    children: children.filter(({ title }) => (title as string).toLocaleLowerCase().includes(keywords.toLocaleLowerCase())).map(({ key, title, ...restChild }) => ({
+    children: children.filter(({ title }) => (title as string).toLowerCase().includes(keywords.toLowerCase())).map(({ key, title, ...restChild }) => ({
       ...restChild,
       key,
       title: <Link className={styles.link} to={key as string}>{title}</Link>
