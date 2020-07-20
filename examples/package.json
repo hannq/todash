@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "todash": "^1.0.1"
+    "todash": "^1.0.0"
   }
 }

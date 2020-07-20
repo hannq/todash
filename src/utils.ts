@@ -2,7 +2,7 @@
  * 用来替换需要 extends any 类型的场景
  * @doc [TypeScript 3.9: Type Parameters That Extend any No Longer Act as any](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-9.html#type-parameters-that-extend-any-no-longer-act-as-any)
  */
-export type AnyObject = { [K in number | string | symbol]: any; };
+export type AnyObject = { [K in keyof any]: any; };
 
 /**
  * 将 union 转换成 intersection
