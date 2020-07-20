@@ -1,8 +1,33 @@
 .side-bar-wrapper {
   height: calc(100% - 64px);
+  box-sizing: border-box;
   width: 240px;
   position: fixed;
   left: 0;
   top: 64px;
   overflow-y: auto;
+  box-shadow: 1px 0 4px #ccc;
+  // &::before {
+  //   display: block;
+  //   content: '';
+  //   height: 20px;
+  // }
+  .search-wrapper {
+    padding: 20px 10px 10px;
+    border-bottom: 1px solid #d9d9d9;
+  }
+  .tree-wrapper {
+    padding: 10px;
+    .tree-root {
+      color: #333;
+    }
+    .link {
+      display: block;
+      letter-spacing: 1.8px;
+      color: #666;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }

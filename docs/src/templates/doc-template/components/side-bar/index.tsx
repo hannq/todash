@@ -1,48 +1,56 @@
-import React, { Children } from 'react';
-import { Link, graphql } from 'gatsby';
+import type { DataNode } from 'antd/lib/tree';
+import React, { useMemo, useState } from 'react';
+import { Link } from 'gatsby';
+import { Tree, Input } from 'antd';
 import styles from './index.module.less';
-import { Menu } from 'antd';
-const { ItemGroup, Item } = Menu;
-
-interface IMenuChild {
-  /** 子菜单路径 */
-  path: string;
-  /** 菜单组名称 */
-  groupName: string;
-  /** 子菜单名称 */
-  name: string;
-}
-
-interface IMenu {
-  /** 菜单组名称 */
-  groupName: string;
-  /** 子菜单 */
-  children: IMenuChild[];
-}
+const { Search } = Input;
 
 export interface IProps {
   /** 当前所属路径 */
   currentPath: string;
   /** 菜单列表 */
-  menuList: IMenu[];
+  menuList: DataNode[];
 }
 
-const Footer: React.SFC<IProps> = (props) => {
+const { showLine } = {
+  showLine: { showLeafIcon: false },
+}
+
+const SideBar: React.SFC<IProps> = (props) => {
   const {
     currentPath,
     menuList
   } = props;
+
+  const selectedKeys = useMemo(() => [currentPath], [currentPath]);
+  const [keywords, setKeywords] = useState('');
+  const treeData = useMemo(() => menuList.map(({ title, children, ...rest }) => ({
+    ...rest,
+    title: <h4 className={styles.treeRoot}>{title}</h4>,
+    children: children.filter(({ title }) => (title as string).includes(keywords)).map(({ key, title, ...restChild }) => ({
+      ...restChild,
+      key,
+      title: <Link className={styles.link} to={key as string}>{title}</Link>
+    }))
+  })), [menuList, keywords]);
+
   return (
     <div className={styles.sideBarWrapper}>
-      <Menu style={{ minHeight: '100%' }} selectedKeys={[currentPath]}>
-        {menuList.map(({ groupName, children }) => (
-          <ItemGroup key={groupName} title={groupName}>
-            {children.map(({ name, path }) => <Item key={path}><Link to={path}>{name}</Link></Item>)}
-          </ItemGroup>
-        ))}
-      </Menu>
+      <div className={styles.searchWrapper}><Search onSearch={setKeywords} /></div>
+      <div className={styles.treeWrapper}>
+        <Tree
+          showLine={showLine}
+          showIcon={false}
+          switcherIcon={null}
+          blockNode={true}
+          defaultExpandAll={true}
+          selectedKeys={selectedKeys}
+          treeData={treeData}
+        />
+      </div>
     </div>
   )
 }
 
-export default Footer
+
+export default SideBar

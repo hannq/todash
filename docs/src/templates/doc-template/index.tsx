@@ -45,12 +45,5 @@ const IndexPage: React.SFC<IProps> = (props) => {
     </>
   )
 }
-//
-
-// export const query = graphql`
-//   query IndexPageQuery {
-
-//   }
-// `
 
 export default IndexPage

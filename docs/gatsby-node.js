@@ -7,9 +7,7 @@
 // You can delete this file if you're not using it
 // @ts-check
 
-const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require('path');
-const fse = require('fs-extra');
 const { groupBy } = require('lodash');
 
 
@@ -26,22 +24,7 @@ exports.onCreateWebpackConfig = ({
 
 
 /** @type { import('gatsby').GatsbyNode['onCreatePage'] } */
-exports.onCreatePage = ({ page, node, getNode, actions, pathPrefix }) => {
-  switch (page.path) {
-    case '/index/':
-      // @ts-ignore
-      actions.deletePage(page);
-      // @ts-ignore
-      actions.createPage({
-        ...page,
-        path: '/',
-        context: {}, // additional data can be passed via context
-      })
-      break;
-    default:
-      break;
-  }
-}
+exports.onCreatePage = ({ page, graphql, node, getNode, actions, pathPrefix }) => { }
 
 /** @type { import('gatsby').GatsbyNode['createPages'] } */
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -52,11 +35,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allMarkdownRemark(sort: {order: ASC, fields: frontmatter___order}) {
         nodes {
           id
-          fileAbsolutePath
           html
           frontmatter {
             name
             groupName
+            path
           }
           headings {
             depth
@@ -67,31 +50,56 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
+
   // Handle errors
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
+
   const totalPages = result.data.allMarkdownRemark.nodes.map(({
     frontmatter,
     headings,
-    fileAbsolutePath,
     html
   }) => {
-    const pathPatternList = fileAbsolutePath.split(path.sep).slice(0, -1);
-    const itemName = pathPatternList.pop();
-    const itemGroupName = pathPatternList.pop();
     return {
       content: html,
-      path: `/${itemGroupName}/${itemName}`,
+      path: frontmatter.path,
       groupName: frontmatter.groupName,
       anchorList: headings,
       name: frontmatter.name
     }
   });
+
+  // export interface DataNode {
+  //   checkable?: boolean;
+  //   children?: DataNode[];
+  //   disabled?: boolean;
+  //   disableCheckbox?: boolean;
+  //   icon?: IconType;
+  //   isLeaf?: boolean;
+  //   key: string | number;
+  //   title?: React.ReactNode;
+  //   selectable?: boolean;
+  //   switcherIcon?: IconType;
+  //   /** Set style of TreeNode. This is not recommend if you don't have any force requirement */
+  //   className?: string;
+  //   style?: React.CSSProperties;
+  // }
+
   const menuList = Object
-    .entries(groupBy(totalPages, 'groupName'))
-    .map(([groupName, children]) => ({ groupName, children }));
+    .entries(groupBy(totalPages.filter(({ groupName }) => groupName), 'groupName'))
+    .map(([groupName, children]) => ({
+      title: groupName,
+      selectable: false,
+      key: groupName,
+      children: children.map(({ path, name }) => ({
+        title: name,
+        selectable: true,
+        key: path,
+      }))
+    }));
+
   totalPages.forEach(({
     content,
     path,

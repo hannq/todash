@@ -5,17 +5,20 @@ import simReactReduxImg from '../../../../images/todash.png';
 import { version } from '../../../../../../package.json';
 import { GithubFilled } from '@ant-design/icons';
 // import Img from "gatsby-image";
-interface IProps {
-
-}
+interface IProps { }
 
 const Footer: React.SFC<IProps> = () => {
   return (
     <section className={styles.wrapper}>
       <header className={styles.header}>
         <Link className={styles.linkWrapper} to={`/`}>
-          <img className={styles.logo} src={simReactReduxImg} alt="logo"/>
-          <span className={styles.text}>Sim React Redux {version}</span>
+          <div className={styles.logoWrapper}>
+            <img className={styles.logo} src={simReactReduxImg} alt="logo"/>
+          </div>
+          <div className={styles.textWrapper}>
+            <h1 className={styles.textTitle}>Todash {version}</h1>
+            <h4 className={styles.textSubtitle}>是一个 类型推导 工具库，旨在帮助你快速方便的编写具备类型推导的 TypeScript 代码。</h4>
+          </div>
         </Link>
         <a href="https://github.com/hannq/todash"><GithubFilled className={styles.githubIcon} /></a>
       </header>
