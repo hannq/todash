@@ -11,6 +11,8 @@ import styles from './index.module.less';
 interface IPathContext extends ISideBarProps {
   /** 当前页面的内容 */
   content: string;
+  /** 当前页面的标题 */
+  title: string;
   /** 锚点列表 */
   anchorList: IAnchorLink[];
 }
@@ -24,14 +26,16 @@ interface IProps {
 
 const IndexPage: React.SFC<IProps> = (props) => {
   const { pathContext: {
+    title,
     content,
-    currentPath,
     anchorList,
+    currentPath,
     menuList
   } } = props;
+
   return (
     <>
-      <SEO title="博客首页" />
+      <SEO title={title} />
       <Header />
       <SideBar
         currentPath={currentPath}

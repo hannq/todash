@@ -71,22 +71,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   });
 
-  // export interface DataNode {
-  //   checkable?: boolean;
-  //   children?: DataNode[];
-  //   disabled?: boolean;
-  //   disableCheckbox?: boolean;
-  //   icon?: IconType;
-  //   isLeaf?: boolean;
-  //   key: string | number;
-  //   title?: React.ReactNode;
-  //   selectable?: boolean;
-  //   switcherIcon?: IconType;
-  //   /** Set style of TreeNode. This is not recommend if you don't have any force requirement */
-  //   className?: string;
-  //   style?: React.CSSProperties;
-  // }
-
   const menuList = Object
     .entries(groupBy(totalPages.filter(({ groupName }) => groupName), 'groupName'))
     .map(([groupName, children]) => ({
@@ -104,15 +88,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     content,
     path,
     anchorList,
+    name,
   }) => {
     createPage({
       path,
       component: docTemplate,
       context: {
         currentPath: path,
-        anchorList,
+        title: name,
         content,
         menuList,
+        anchorList,
       },
     })
   });

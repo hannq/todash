@@ -17,7 +17,7 @@ _.TupleByConcat<tuple1, tuple2>
 
 <br/>
 
-将元组的顺序反转，并返回
+将 tuple1、tuple2 首尾相接并返回
 
 <br/>
 

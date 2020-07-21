@@ -30,6 +30,20 @@ npm install todash --save-dev
 
 <br/>
 
+## 导入方式
+
+<br/>
+
+```typescript
+// 可以使用命名空间直接导入
+import _ from 'todash';
+
+// 也可以按需导入
+import { ShiftTuple } from 'todash';
+```
+
+<br/>
+
 ## 为什么选择 Todash ？
 
 <br/>
