@@ -31,7 +31,12 @@ type _PopTupleRecursion<T extends any[], R = never> = {
 /**
  * 返回元组的第最后一项
  */
-export type PopTuple<T extends any[]> = _PopTupleRecursion<T>
+export type PopTuple<T extends any[]> = _PopTupleRecursion<T>;
+
+/**
+ * 删除元组的最后一项，并返回被删除后的元组
+ */
+export type TupleByPop<T extends any[]> = AssignByOwnKey<TupleByShift<T>, T>;
 
 /**
  * 将一个类型添加元组的末尾，并返回元组

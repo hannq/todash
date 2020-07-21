@@ -70,6 +70,11 @@ namespace Todash {
   export type PopTuple<T extends any[]> = Tuple.PopTuple<T>;
 
   /**
+   * 删除元组的最后一项，并返回被删除后的元组
+   */
+  export type TupleByPop<T extends any[]> = Tuple.TupleByPop<T>;
+
+  /**
    * 将一个类型添加元组的末尾，并返回元组
    */
   export type TupleByPush<T extends any[], E> = Tuple.TupleByPush<T, E>;
@@ -83,6 +88,11 @@ namespace Todash {
    * 将指定的两个元组首尾相接
    */
   export type TupleByConcat<T extends any[], E extends any[]> = Tuple.TupleByConcat<T, E>
+
+  /**
+   * 将 union 转化为 元组
+   */
+  export type Union2Tuple<T> = Tuple.Union2Tuple<T>
 }
 
 export default Todash;
