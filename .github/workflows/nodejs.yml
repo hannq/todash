@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Checkout branch master
+        uses: actions/checkout@v2
+        with:
+          ref: master
+          path: master-branch
+      - name: Checkout branch gh-pages
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          path: gh-pages-branch
+      - name: Build docs
+        run: |
+          cd ${GITHUB_WORKSPACE}/master-branch/docs
+          npm i
+          npm run build
+          cp -rf ./public/ /tmp/todash-docs
+          ls -al /tmp/todash-docs
+      - name: Deploy docs
+        run: |
+          cd ${GITHUB_WORKSPACE}/gh-pages-branch
+          git rm -rf *
+          cp -r /tmp/todash-docs/* ./
+          git config --local user.name github-actions
+          git config --local user.email github-actions@github.com
+          git add .
+          git commit -m "deploy docs"
+          git push
