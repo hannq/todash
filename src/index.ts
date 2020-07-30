@@ -47,6 +47,21 @@ namespace Todash {
    */
   export type AssignByOwnKey<S, T> = Utils.AssignByOwnKey<S, T>;
 
+  /**
+   * 将 union 转化为 元组
+   */
+  export type Union2Tuple<T> = Tuple.Union2Tuple<T>;
+
+  /**
+   * 从对象中删除指定值类型的字段
+   */
+  export type OmitBy<T, V> = Utils.OmitBy<T, V>;
+
+  /**
+   * 从对象中删除非指定值类型的字段
+   */
+  export type FilterBy<T, V> = Utils.FilterBy<T, V>;
+
   // ##################### tuple #####################
 
   /**
@@ -87,12 +102,8 @@ namespace Todash {
   /**
    * 将指定的两个元组首尾相接
    */
-  export type TupleByConcat<T extends any[], E extends any[]> = Tuple.TupleByConcat<T, E>
+  export type TupleByConcat<T extends any[], E extends any[]> = Tuple.TupleByConcat<T, E>;
 
-  /**
-   * 将 union 转化为 元组
-   */
-  export type Union2Tuple<T> = Tuple.Union2Tuple<T>
 }
 
 export default Todash;

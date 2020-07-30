@@ -41,6 +41,20 @@ export type AssignByOwnKey<S, T extends AnyObject> = { [K in keyof S]: T[K] };
 export type Array2Union<T extends any[]> = T[number];
 
 /**
+ * 从对象中删除指定值类型的字段
+ */
+export type OmitBy<T, V> = Omit<T,{
+  [K in keyof T]: T[K] extends V ? K : never;
+}[keyof T]>;
+
+/**
+ * 从对象中删除非指定值类型的字段
+ */
+export type FilterBy<T, V> = Omit<T,{
+  [K in keyof T]: T[K] extends V ? never : K;
+}[keyof T]>;
+
+/**
  * 确保指定类型一定是 数组/元组
  */
 export type EnsureArray<T> = T extends any[] ? T : [];

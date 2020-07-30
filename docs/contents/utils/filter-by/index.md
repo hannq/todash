@@ -1,8 +1,8 @@
 ---
-order: 9
+order: 8
 groupName: "Utils"
-name: "_.EnsureArray"
-path: "/utils/ensure-array"
+name: "_.FilterBy"
+path: "/utils/filter-by"
 ---
 
 <br/>
@@ -12,12 +12,12 @@ path: "/utils/ensure-array"
 <br/>
 
 ```typescript
-_.EnsureArray<array>
+_.FilterBy<obj, vType>
 ```
 
 <br/>
 
-确保指定类型一定是 数组/元组
+从对象中删除非指定值类型的字段
 
 <br/>
 
