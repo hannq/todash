@@ -53,8 +53,4 @@ interface MyType {
 // 例如当你需要只去除所有值类型为方法的属性
 type ObjAfterOmitBy = _.OmitBy<MyType, Function>;
 // => { a: string; b: number; c: boolean; }
-
-// 例如当你需要只去除所有值类型不为方法的属性
-type ObjAfterFilterBy = FilterBy<MyType, Function>;
-// => { d: () => void; }
 ```

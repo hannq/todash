@@ -42,9 +42,14 @@ _.FilterBy<obj, vType>
 <br/>
 
 ```typescript
-type ArrayAfterEnsure = _.EnsureArray<['vue', 'react', 'angular']>;
-// => ['vue', 'react', 'angular']
+interface MyType {
+  a: string;
+  b: number;
+  c: boolean;
+  d: () => void;
+}
 
-type ArrayAfterEnsure = _.EnsureArray<'vue'>;
-// => []
+// 例如当你需要只去除所有值类型不为方法的属性
+type ObjAfterFilterBy = FilterBy<MyType, Function>;
+// => { d: () => void; }
 ```
