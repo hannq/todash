@@ -1,5 +1,6 @@
 ---
 order: 3
+groupOrder: 2
 groupName: "Tuple"
 name: "_.TupleByUnshift"
 path: "/tuple/tuple-by-unshift"

@@ -1,5 +1,6 @@
 ---
 order: 8
+groupOrder: 1
 groupName: "Utils"
 name: "_.FilterBy"
 path: "/utils/filter-by"

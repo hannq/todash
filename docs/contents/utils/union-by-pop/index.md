@@ -1,5 +1,6 @@
 ---
 order: 4
+groupOrder: 1
 groupName: "Utils"
 name: "_.UnionByPop"
 path: "/utils/union-by-pop"

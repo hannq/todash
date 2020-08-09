@@ -1,5 +1,6 @@
 ---
 order: 2
+groupOrder: 1
 groupName: "Utils"
 name: "_.PureCombineUnion"
 path: "/utils/pure-combine-union"

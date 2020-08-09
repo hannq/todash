@@ -1,5 +1,6 @@
 ---
 order: 2
+groupOrder: 2
 groupName: "Tuple"
 name: "_.TupleByShift"
 path: "/tuple/tuple-by-shift"

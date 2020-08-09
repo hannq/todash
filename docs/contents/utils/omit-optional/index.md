@@ -1,5 +1,6 @@
 ---
 order: 9
+groupOrder: 1
 groupName: "Utils"
 name: "_.OmitOptional"
 path: "/utils/omit-optional"

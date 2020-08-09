@@ -1,5 +1,6 @@
 ---
 order: 3
+groupOrder: 1
 groupName: "Utils"
 name: "_.PopUnion"
 path: "/utils/pop-union"

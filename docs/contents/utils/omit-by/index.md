@@ -1,5 +1,6 @@
 ---
 order: 7
+groupOrder: 1
 groupName: "Utils"
 name: "_.OmitBy"
 path: "/utils/omit-by"

@@ -1,5 +1,6 @@
 ---
 order: 5
+groupOrder: 1
 groupName: "Utils"
 name: "_.AssignByOwnKey"
 path: "/utils/assign-by-own-key"

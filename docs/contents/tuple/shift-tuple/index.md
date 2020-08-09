@@ -1,5 +1,6 @@
 ---
 order: 1
+groupOrder: 2
 groupName: "Tuple"
 name: "_.ShiftTuple"
 path: "/tuple/shift-tuple"

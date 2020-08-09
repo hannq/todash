@@ -1,5 +1,6 @@
 ---
 order: 1
+groupOrder: 1
 groupName: "Utils"
 name: "_.CombineUnion"
 path: "/utils/combine-union"

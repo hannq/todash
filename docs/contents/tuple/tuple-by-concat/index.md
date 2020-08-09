@@ -1,5 +1,6 @@
 ---
 order: 7
+groupOrder: 2
 groupName: "Tuple"
 name: "_.TupleByConcat"
 path: "/tuple/tuple-by-concat"

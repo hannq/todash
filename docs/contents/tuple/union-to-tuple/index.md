@@ -1,5 +1,6 @@
 ---
 order: 8
+groupOrder: 2
 groupName: "Tuple"
 name: "_.Union2Tuple"
 path: "/tuple/union-to-tuple"

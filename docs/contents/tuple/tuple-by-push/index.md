@@ -1,5 +1,6 @@
 ---
 order: 5
+groupOrder: 2
 groupName: "Tuple"
 name: "_.TupleByPush"
 path: "/tuple/tuple-by-push"

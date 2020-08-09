@@ -1,5 +1,6 @@
 ---
 order: 6
+groupOrder: 2
 groupName: "Tuple"
 name: "_.TupleByReverse"
 path: "/tuple/tuple-by-reverse"

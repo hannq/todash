@@ -38,6 +38,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           html
           frontmatter {
             name
+            groupOrder
             groupName
             path
           }
@@ -65,6 +66,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return {
       content: html,
       path: frontmatter.path,
+      groupOrder: frontmatter.groupOrder,
       groupName: frontmatter.groupName,
       anchorList: headings,
       name: frontmatter.name
@@ -73,7 +75,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const menuList = Object
     .entries(groupBy(totalPages.filter(({ groupName }) => groupName), 'groupName'))
-    .sort(([, [{ order: orderA }]], [, [{ order: orderB }]]) => orderA - orderB)
+    .sort(([, [{ groupOrder: orderA }]], [, [{ groupOrder: orderB }]]) => orderA - orderB)
     .map(([groupName, children]) => ({
       title: groupName,
       selectable: false,

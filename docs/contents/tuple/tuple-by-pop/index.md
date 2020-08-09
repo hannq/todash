@@ -1,5 +1,6 @@
 ---
 order: 4
+groupOrder: 2
 groupName: "Tuple"
 name: "_.TupleByPop"
 path: "/tuple/tuple-by-pop"

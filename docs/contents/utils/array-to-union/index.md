@@ -1,5 +1,6 @@
 ---
 order: 6
+groupOrder: 1
 groupName: "Utils"
 name: "_.Array2Union"
 path: "/utils/array-to-union"
