@@ -55,6 +55,13 @@ export type FilterBy<T, V> = Omit<T,{
 }[keyof T]>;
 
 /**
+ * 从对象中删除可选字段
+ */
+export type OmitOptional<T> = Pick<T, {
+  [K in keyof T]-?: {} extends Pick<T, K> ? never : K;
+}[keyof T]>;
+
+/**
  * 确保指定类型一定是 数组/元组
  */
 export type EnsureArray<T> = T extends any[] ? T : [];

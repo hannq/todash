@@ -58,6 +58,11 @@ namespace Todash {
   export type OmitBy<T, V> = Utils.OmitBy<T, V>;
 
   /**
+   * 从对象中删除可选字段
+   */
+  export type OmitOptional<T> = Utils.OmitOptional<T>;
+
+  /**
    * 从对象中删除非指定值类型的字段
    */
   export type FilterBy<T, V> = Utils.FilterBy<T, V>;

@@ -20,7 +20,10 @@ const Footer: React.SFC<IProps> = () => {
             <h4 className={styles.textSubtitle}>是一个 类型推导 工具库，旨在帮助你快速方便的编写具备类型推导的 TypeScript 代码。</h4>
           </div>
         </Link>
-        <a href="https://github.com/hannq/todash"><GithubFilled className={styles.githubIcon} /></a>
+        <div className={styles.rightWrapper}>
+          <Link className={styles.changeLog} to={`/change-log`}>更新日志</Link>
+          <a href="https://github.com/hannq/todash"><GithubFilled className={styles.githubIcon} /></a>
+        </div>
       </header>
     </section>
   )

@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 groupName: "Utils"
 name: "_.EnsureArray"
 path: "/utils/ensure-array"
