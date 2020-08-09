@@ -73,6 +73,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const menuList = Object
     .entries(groupBy(totalPages.filter(({ groupName }) => groupName), 'groupName'))
+    .sort(([, [{ order: orderA }]], [, [{ order: orderB }]]) => orderA - orderB)
     .map(([groupName, children]) => ({
       title: groupName,
       selectable: false,
