@@ -9,6 +9,18 @@ path: "/change-log"
 
 <br />
 
+## 2.1.1
+
+<br />
+
+`2021-12-10`
+
+<br />
+
+- 🐞 修复 `TupleByShiftShim` 操作符(1.x 旧版本操作符，新版本忽略), 当 `Tuple` 为空时，返回 `never` 类型的错误。
+
+<br />
+
 ## 2.1.0
 
 <br />
