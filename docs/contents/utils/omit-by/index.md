@@ -26,7 +26,7 @@ _.OmitBy<obj, vType>
 
 <br/>
 
-<font color="#d9a84a">obj (Object)</font>: 需要处理的 对象 类型
+<font color="#d9a84a">obj (Object)</font>: 需要处理的 对象 类型<br/>
 <font color="#d9a84a">vType (unknown)</font>: 需要被删除字段的指定值类型
 
 <br/>

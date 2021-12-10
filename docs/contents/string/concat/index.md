@@ -26,7 +26,7 @@ _.StringConcat<str, strOrStrArr>
 
 <br/>
 
-<font color="#d9a84a">str (string)</font>: 尾部等待被连接的字符串
+<font color="#d9a84a">str (string)</font>: 尾部等待被连接的字符串<br/>
 <font color="#d9a84a">strOrStrArr (string | string[])</font>: 需要连接到 str 的「字符串」或「字符串列表」
 
 <br/>

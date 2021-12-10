@@ -26,7 +26,7 @@ _.StringStartsWith<str, searchStr>
 
 <br/>
 
-<font color="#d9a84a">str (string)</font>: 被搜索的当前字符串
+<font color="#d9a84a">str (string)</font>: 被搜索的当前字符串<br/>
 <font color="#d9a84a">searchStr (string)</font>: 要搜索的子字符串
 
 <br/>

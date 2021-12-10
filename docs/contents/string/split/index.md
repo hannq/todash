@@ -26,7 +26,7 @@ _.StringSplit<str, separator>
 
 <br/>
 
-<font color="#d9a84a">str (string)</font>: 尾部等待被连接的字符串
+<font color="#d9a84a">str (string)</font>: 尾部等待被连接的字符串<br/>
 <font color="#d9a84a">separator (string)</font>: 指定表示每个拆分应发生的点的字符串
 
 <br/>

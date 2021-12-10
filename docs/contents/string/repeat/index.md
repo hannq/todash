@@ -26,7 +26,7 @@ _.StringRepeat<str, count>
 
 <br/>
 
-<font color="#d9a84a">str (string)</font>: 需要被重复的字符串
+<font color="#d9a84a">str (string)</font>: 需要被重复的字符串<br/>
 <font color="#d9a84a">count (number)</font>: 表示在新构造的字符串中重复了多少遍原字符串 默认为 0
 
 <br/>

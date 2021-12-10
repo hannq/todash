@@ -26,7 +26,7 @@ _.TupleJoin<strArr, separator>
 
 <br/>
 
-<font color="#d9a84a">strArr (Tuple&lt;string&gt;)</font>: 需要被连接的字符串元组
+<font color="#d9a84a">strArr (Tuple&lt;string&gt;)</font>: 需要被连接的字符串元组<br/>
 <font color="#d9a84a">separator (string)</font>: 用于连接的分隔符 默认为 `,`
 
 <br/>
