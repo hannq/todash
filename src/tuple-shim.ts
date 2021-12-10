@@ -17,7 +17,6 @@ export type ShiftTuple<T extends any[]> = T[0];
 
 /**
  * 删除元组的第一项，并返回被删除后的元组
- *
  */
 export type TupleByShift<T extends any[]> = ((...params: T) => any) extends ((param1: any, ...rest: infer P) => any) ? P : never;
 
@@ -74,6 +73,8 @@ type _TupleByConcatRecursion<T extends any[], E extends any[], R = T> = {
  * 将指定的两个元组首尾相接
  */
 export type TupleByConcat<T extends any[], E extends any[]> = _TupleByConcatRecursion<T, E>;
+
+
 
 /**
  * 【递归地】 将 union 转化为 元组

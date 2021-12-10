@@ -1,6 +1,7 @@
 import {
   UnionByPop,
   PopUnion,
+  EnsureString
 } from './utils';
 
 /**
@@ -11,7 +12,7 @@ export type ShiftTuple<T extends any[]> = T[0];
 /**
  * 删除元组的第一项，并返回被删除后的元组
  */
-export type TupleByShift<T extends any[]> = T extends [any, ...infer Rest] ? Rest : never;
+export type TupleByShift<T extends any[]> = T extends [any, ...infer Rest] ? Rest : [];
 
 /**
  * 将一个类型添加元组的开头，并返回元组
@@ -26,7 +27,7 @@ export type PopTuple<T extends any[]> = T extends [...any[], infer Tail] ? Tail 
 /**
  * 删除元组的最后一项，并返回被删除后的元组
  */
-export type TupleByPop<T extends any[]> = T extends [...infer Head, any] ? Head : never;
+export type TupleByPop<T extends any[]> = T extends [...infer Head, any] ? Head : [];
 
 /**
  * 将一个类型添加元组的末尾，并返回元组
@@ -47,6 +48,20 @@ export type TupleByReverse<T extends any[]> = _ReverseTupleRecursion<T>;
  * 将指定的两个元组首尾相接
  */
 export type TupleByConcat<T extends any[], E extends any[]> = [...T, ...E];
+
+/**
+ *【递归地】将一个元组的所有元素连接成一个字符串并返回这个字符串
+ */
+type _JoinRecursion<
+  Acc extends string,
+  Separator extends string,
+  AccArr extends string[],
+> = AccArr['length'] extends 0 ? Acc : _JoinRecursion<`${Acc}${AccArr['length'] extends 0 ? '' : Separator}${EnsureString<ShiftTuple<AccArr>>}`, Separator, TupleByShift<AccArr>>;
+
+/**
+ * 将一个元组的所有元素连接成一个字符串并返回这个字符串
+ */
+export type Join<StrArr extends string[], Separator extends string = ''> = _JoinRecursion<EnsureString<ShiftTuple<StrArr>>, Separator, TupleByShift<StrArr>>;
 
 /**
  * 【递归地】 将 union 转化为 元组
