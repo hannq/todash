@@ -59,9 +59,9 @@ type _JoinRecursion<
 > = AccArr['length'] extends 0 ? Acc : _JoinRecursion<`${Acc}${AccArr['length'] extends 0 ? '' : Separator}${EnsureString<ShiftTuple<AccArr>>}`, Separator, TupleByShift<AccArr>>;
 
 /**
- * 将一个元组的所有元素连接成一个字符串并返回这个字符串
+ * 将一个字符串元组的所有元素用指定分隔符连接成一个字符串并返回这个字符串
  */
-export type Join<StrArr extends string[], Separator extends string = ''> = _JoinRecursion<EnsureString<ShiftTuple<StrArr>>, Separator, TupleByShift<StrArr>>;
+export type TupleJoin<StrArr extends string[], Separator extends string = ','> = _JoinRecursion<EnsureString<ShiftTuple<StrArr>>, Separator, TupleByShift<StrArr>>;
 
 /**
  * 【递归地】 将 union 转化为 元组

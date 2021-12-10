@@ -1,1 +1,12 @@
-# sim-react-redux 文档
+# Todash 文档
+
+
+
+StartsWith
+EndsWith
+TrimStart
+TrimEnd
+Trim
+Repeat
+Concat
+Split

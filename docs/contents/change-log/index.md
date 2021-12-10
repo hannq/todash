@@ -20,6 +20,8 @@ path: "/change-log"
 - ⚡️ 升级 `Typescript` 版本到 `4.5`，优化 `Tuple` 工具若干函数写法
 - 💄 保留旧的 `Tuple` 写法作为降级方案
 
+<br />
+
 ## 1.0.5
 
 <br />
