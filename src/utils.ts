@@ -67,6 +67,6 @@ export type OmitOptional<T> = Pick<T, {
 export type EnsureArray<T> = T extends any[] ? T : [];
 
 /**
- * 确保指定类型一定是 数组/元组
+ * 确保指定类型一定是 string
  */
  export type EnsureString<T> = T extends string ? T : '';
