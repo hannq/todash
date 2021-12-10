@@ -1,8 +1,6 @@
 import {
   UnionByPop,
   PopUnion,
-  AssignByOwnKey,
-  EnsureArray
 } from './utils';
 
 /**
@@ -13,43 +11,32 @@ export type ShiftTuple<T extends any[]> = T[0];
 /**
  * 删除元组的第一项，并返回被删除后的元组
  */
-export type TupleByShift<T extends any[]> = ((...params: T) => any) extends ((param1: any, ...rest: infer P) => any) ? P : never;
+export type TupleByShift<T extends any[]> = T extends [any, ...infer Rest] ? Rest : never;
 
 /**
  * 将一个类型添加元组的开头，并返回元组
  */
-export type TupleByUnshift<T extends any[], E> = ((param1: E, ...params: T) => any) extends ((...params: infer P) => any) ? P : never;
-
-/**
- * 【递归地】删除元组的第最后一项，并返回
- */
-type _PopTupleRecursion<T extends any[], R = never> = {
-  0: R;
-  1: _PopTupleRecursion<TupleByShift<T>, ShiftTuple<T>>;
-}[T extends [] ? 0 : 1];
+export type TupleByUnshift<T extends any[], E> = [E, ...T];
 
 /**
  * 返回元组的第最后一项
  */
-export type PopTuple<T extends any[]> = _PopTupleRecursion<T>;
+export type PopTuple<T extends any[]> = T extends [...any[], infer Tail] ? Tail : never;
 
 /**
  * 删除元组的最后一项，并返回被删除后的元组
  */
-export type TupleByPop<T extends any[]> = AssignByOwnKey<TupleByShift<T>, T>;
+export type TupleByPop<T extends any[]> = T extends [...infer Head, any] ? Head : never;
 
 /**
  * 将一个类型添加元组的末尾，并返回元组
  */
-export type TupleByPush<T extends any[], E> = AssignByOwnKey<TupleByUnshift<T, any>, T & { [K: string]: E }>;
+export type TupleByPush<T extends any[], E> = [...T, E];
 
 /**
  * 【递归地】将元组的顺序反转，并返回
  */
-type _ReverseTupleRecursion<T extends any[], R = []> = {
-  0: R;
-  1: _ReverseTupleRecursion<TupleByShift<T>, TupleByUnshift<EnsureArray<R>, ShiftTuple<T>>>;
-}[T extends [] ? 0 : 1];
+type _ReverseTupleRecursion<T extends any[], R extends any[] = []> = T extends [] ? R : _ReverseTupleRecursion<TupleByPop<T>, TupleByPush<R, PopTuple<T>>>
 
 /**
  * 将元组的顺序反转，并返回
@@ -57,25 +44,14 @@ type _ReverseTupleRecursion<T extends any[], R = []> = {
 export type TupleByReverse<T extends any[]> = _ReverseTupleRecursion<T>;
 
 /**
- * 【递归地】将元组的顺序反转，并返回
- */
-type _TupleByConcatRecursion<T extends any[], E extends any[], R = T> = {
-  0: R;
-  1: _TupleByConcatRecursion<T, TupleByShift<E>, EnsureArray<TupleByPush<EnsureArray<R>, ShiftTuple<E>>>>;
-}[E extends [] ? 0 : 1];
-
-/**
  * 将指定的两个元组首尾相接
  */
-export type TupleByConcat<T extends any[], E extends any[]> = _TupleByConcatRecursion<T, E>;
+export type TupleByConcat<T extends any[], E extends any[]> = [...T, ...E];
 
 /**
  * 【递归地】 将 union 转化为 元组
  * */
-type _Union2TupleRecursion<T, R extends any[] = []> = {
-  0: R;
-  1: _Union2TupleRecursion<UnionByPop<T>, EnsureArray<TupleByUnshift<R, PopUnion<T>>>>;
-}[[T] extends [never] ? 0 : 1];
+type _Union2TupleRecursion<T, R extends any[] = []> = [T] extends [never] ? R : _Union2TupleRecursion<UnionByPop<T>, TupleByUnshift<R, PopUnion<T>>>;
 
 /**
  * 将 union 转化为 元组

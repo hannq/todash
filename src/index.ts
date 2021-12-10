@@ -1,5 +1,6 @@
 import * as Utils from './utils';
 import * as Tuple from './tuple';
+import * as TupleShim from './tuple-shim';
 export * from './utils';
 export * from './tuple';
 
@@ -109,6 +110,48 @@ namespace Todash {
    */
   export type TupleByConcat<T extends any[], E extends any[]> = Tuple.TupleByConcat<T, E>;
 
+  // ##################### polyfill #####################
+  // ##################### tuple #####################
+
+  /**
+   * 返回元组的第一项
+   */
+  export type ShiftTupleShim<T extends any[]> = TupleShim.ShiftTuple<T>;
+
+  /**
+  * 删除元组的第一项，并返回被删除后的元组
+  */
+  export type TupleByShiftShim<T extends any[]> = TupleShim.TupleByShift<T>;
+
+  /**
+  * 将一个类型添加元组的开头，并返回元组
+  */
+  export type TupleByUnshiftShim<T extends any[], E> = TupleShim.TupleByUnshift<T, E>;
+
+  /**
+  * 返回元组的第最后一项
+  */
+  export type PopTupleShim<T extends any[]> = TupleShim.PopTuple<T>;
+
+  /**
+  * 删除元组的最后一项，并返回被删除后的元组
+  */
+  export type TupleByPopShim<T extends any[]> = TupleShim.TupleByPop<T>;
+
+  /**
+  * 将一个类型添加元组的末尾，并返回元组
+  */
+  export type TupleByPushShim<T extends any[], E> = TupleShim.TupleByPush<T, E>;
+
+  /**
+  * 将元组的顺序反转，并返回
+  */
+  export type TupleByReverseShim<T extends any[]> = TupleShim.TupleByReverse<T>;
+
+  /**
+  * 将指定的两个元组首尾相接
+  */
+  export type TupleByConcatShim<T extends any[], E extends any[]> = TupleShim.TupleByConcat<T, E>;
 }
 
 export default Todash;
