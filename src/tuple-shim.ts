@@ -18,7 +18,7 @@ export type ShiftTuple<T extends any[]> = T[0];
 /**
  * 删除元组的第一项，并返回被删除后的元组
  */
-export type TupleByShift<T extends any[]> = ((...params: T) => any) extends ((param1: any, ...rest: infer P) => any) ? P : never;
+export type TupleByShift<T extends any[]> = ((...params: T) => any) extends ((param1: any, ...rest: infer P) => any) ? P : [];
 
 /**
  * 将一个类型添加元组的开头，并返回元组

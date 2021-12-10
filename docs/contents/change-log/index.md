@@ -28,6 +28,7 @@ path: "/change-log"
 - 🆕 新增 `StringTrim` 操作符, 方法从 **字符串类型** 的 **两端** 删除空格并返回。[快速了解](/string/trim)
 - 🆕 新增 `StringRepeat` 操作符, 构造并返回一个新 **字符串类型**，该 **字符串类型** 包含被连接在一起的指定数量的 **字符串类型** 的副本。[快速了解](/string/repeat)
 - 🆕 新增 `EnsureString` 操作符, 确保指定类型一定是 **字符串类型** 。[快速了解](/utils/ensure-string)
+
 <br />
 
 ## 2.0.0
