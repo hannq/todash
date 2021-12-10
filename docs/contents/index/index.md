@@ -52,7 +52,7 @@ import { ShiftTuple } from 'todash';
 
 `Todash` 非常适用于：
 
-+ 遍历/操作 元组(Tuple)/字面量对象 类型
++ 遍历/操作 字符串(String)/元组(Tuple)/字面量对象 类型
 + 各种类型之前相互转换
 + 提取某一类型的泛型
 + 对类型特定位置的类型进行提取和转换
