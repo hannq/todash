@@ -1,6 +1,6 @@
 {
   "name": "todash",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "Todash 是一个类型推导工具库，旨在帮助你快速方便的编写具备类型推导的 TypeScript 代码。",
   "main": "index.js",
   "types": "dist/index.d.ts",
