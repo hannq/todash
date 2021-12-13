@@ -20,6 +20,11 @@ export type TupleByShift<T extends any[]> = T extends [any, ...infer Rest] ? Res
 export type TupleByUnshift<T extends any[], E> = [E, ...T];
 
 /**
+ * 将一个类型添加元组的末尾，并返回 暴力枚举后的 元组联合类型
+ */
+export type TupleByUnionUnshift<T extends any[], E> = (E extends any ? (() => TupleByUnshift<T, E>) : never) extends () => infer R ? R : never;
+
+/**
  * 返回元组的第最后一项
  */
 export type PopTuple<T extends any[]> = T extends [...any[], infer Tail] ? Tail : never;
@@ -33,6 +38,11 @@ export type TupleByPop<T extends any[]> = T extends [...infer Head, any] ? Head 
  * 将一个类型添加元组的末尾，并返回元组
  */
 export type TupleByPush<T extends any[], E> = [...T, E];
+
+/**
+ * 将一个类型添加元组的末尾，并返回 暴力枚举后的 元组联合类型
+ */
+export type TupleByUnionPush<T extends any[], E> = (E extends any ? (() => TupleByPush<T, E>) : never) extends () => infer R ? R : never;
 
 /**
  * 【递归地】将元组的顺序反转，并返回
@@ -61,7 +71,7 @@ type _JoinRecursion<
 /**
  * 将一个字符串元组的所有元素用指定分隔符连接成一个字符串并返回这个字符串
  */
-export type TupleJoin<StrArr extends string[], Separator extends string = ','> = _JoinRecursion<EnsureString<ShiftTuple<StrArr>>, Separator, TupleByShift<StrArr>>;
+export type TupleJoin<StrArr extends string[], Separator extends string = ','> = (StrArr extends any ? (() => _JoinRecursion<EnsureString<ShiftTuple<StrArr>>, Separator, TupleByShift<StrArr>>) : never) extends () => infer R ? R : never;
 
 /**
  * 【递归地】 将 union 转化为 元组
