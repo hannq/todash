@@ -2,6 +2,7 @@
  * base on TS 4.1 template literal
  */
 
+import { EnsureString } from './utils';
 import { TupleJoin } from './tuple';
 
 /**
@@ -47,7 +48,7 @@ export type StringRepeat<Str extends string, Count extends number = 0> = _Repeat
 /**
  * 将一个或多个字符串与原字符串连接合并，形成一个新的字符串并返回
  */
-export type StringConcat<Str extends string, StrOrStrArrForConcat extends string | (string[]) = ''> = StrOrStrArrForConcat extends string ? `${Str}${StrOrStrArrForConcat}` : StrOrStrArrForConcat extends string[] ? `${Str}${TupleJoin<StrOrStrArrForConcat, ''>}` : Str;
+export type StringConcat<Str extends string, StrOrStrArrForConcat extends string | (string[]) = ''> = StrOrStrArrForConcat extends string ? `${Str}${StrOrStrArrForConcat}` : StrOrStrArrForConcat extends string[] ? `${Str}${EnsureString<TupleJoin<StrOrStrArrForConcat, ''>>}` : Str;
 
 /**
  *【递归地】方法使用指定的分隔符字符串将一个String对象分割成子字符串数组，以一个指定的分割字串来决定每个拆分的位置
