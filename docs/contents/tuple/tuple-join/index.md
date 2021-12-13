@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 11
 groupOrder: 2
 groupName: "Tuple"
 name: "_.TupleJoin"

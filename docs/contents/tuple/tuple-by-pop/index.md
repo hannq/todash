@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 6
 groupOrder: 2
 groupName: "Tuple"
 name: "_.TupleByPop"

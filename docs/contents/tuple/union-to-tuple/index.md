@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 12
 groupOrder: 2
 groupName: "Tuple"
 name: "_.Union2Tuple"

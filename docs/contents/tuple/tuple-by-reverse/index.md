@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 9
 groupOrder: 2
 groupName: "Tuple"
 name: "_.TupleByReverse"

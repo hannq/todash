@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 10
 groupOrder: 2
 groupName: "Tuple"
 name: "_.TupleByConcat"
