@@ -9,6 +9,20 @@ path: "/change-log"
 
 <br />
 
+## 2.2.0
+
+<br />
+
+`2021-12-13`
+
+<br />
+
+- 🐞 修复 `TupleJoin` 操作符「联合类型」下暴力枚举的联合类型错误。
+- 🆕 新增 `TupleByUnionPush` 操作符, 扩展在「联合类型」入参下 `TupleByPush` 的「返回值类型」。[快速了解](/tuple/tuple-by-union-push)
+- 🆕 新增 `TupleByUnionUnshift` 操作符, 扩展在「联合类型」入参下 `TupleByUnshift` 的「返回值类型」。[快速了解](/tuple/tuple-by-union-unshift)
+
+<br />
+
 ## 2.1.1
 
 <br />
