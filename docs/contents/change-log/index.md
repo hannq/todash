@@ -9,6 +9,18 @@ path: "/change-log"
 
 <br />
 
+## 2.3.0
+
+<br />
+
+`2022-08-01`
+
+<br />
+
+- 🆕 新增 `ObjAddStrKeySuffix` 操作符, 支持给对象的 key(string) 增加 指定后缀。[快速了解](/utils/obj-add-str-key-suffix)
+
+<br />
+
 ## 2.2.0
 
 <br />

@@ -43,14 +43,14 @@ export type Array2Union<T extends any[]> = T[number];
 /**
  * 从对象中删除指定值类型的字段
  */
-export type OmitBy<T, V> = Omit<T,{
+export type OmitBy<T, V> = Omit<T, {
   [K in keyof T]: T[K] extends V ? K : never;
 }[keyof T]>;
 
 /**
  * 从对象中删除非指定值类型的字段
  */
-export type FilterBy<T, V> = Omit<T,{
+export type FilterBy<T, V> = Omit<T, {
   [K in keyof T]: T[K] extends V ? never : K;
 }[keyof T]>;
 
@@ -69,4 +69,17 @@ export type EnsureArray<T> = T extends any[] ? T : [];
 /**
  * 确保指定类型一定是 string
  */
- export type EnsureString<T> = T extends string ? T : '';
+export type EnsureString<T> = T extends string ? T : '';
+
+/**
+ * 给对象的 key(string) 增加 指定后缀
+ */
+export type ObjAddStrKeySuffix<Origin extends Record<string, any>, Suffix extends string = ''> = {
+  [K in {
+    [K2 in keyof Origin]: K2 extends string ? `${K2}${Suffix}` : never;
+  }[keyof Origin]]: K extends `${infer RK}${Suffix}`
+  ? RK extends string
+  ? Origin[RK]
+  : never
+  : never;
+};

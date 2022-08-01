@@ -75,6 +75,11 @@ namespace Todash {
    */
   export type EnsureString<T> = Utils.EnsureString<T>;
 
+  /**
+   * 给对象的 key(string) 增加 指定后缀
+   */
+  export type ObjAddStrKeySuffix<Origin extends Record<string, any>, Suffix extends string = ""> = Utils.ObjAddStrKeySuffix<Origin, Suffix>
+
   // ##################### tuple #####################
 
   /**
