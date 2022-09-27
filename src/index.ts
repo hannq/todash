@@ -48,7 +48,7 @@ namespace Todash {
   /**
    * 把自身（source）已有的属性 用 目标（target）的同名属性覆盖
    */
-  export type AssignByOwnKey<S, T> = Utils.AssignByOwnKey<S, T>;
+  export type AssignByOwnKey<S, T extends Utils.AnyObject> = Utils.AssignByOwnKey<S, T>;
 
   /**
    * 将 union 转化为 元组
@@ -79,6 +79,11 @@ namespace Todash {
    * 给对象的 key(string) 增加 指定后缀
    */
   export type ObjAddStrKeySuffix<Origin extends Record<string, any>, Suffix extends string = ""> = Utils.ObjAddStrKeySuffix<Origin, Suffix>
+
+  /**
+   * 给对象的 key(string) 增加 指定前缀
+   */
+   export type ObjAddStrKeyPrefix<Origin extends Record<string, any>, Prefix extends string = ""> = Utils.ObjAddStrKeyPrefix<Origin, Prefix>
 
   // ##################### tuple #####################
 

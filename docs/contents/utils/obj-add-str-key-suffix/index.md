@@ -1,5 +1,5 @@
 ---
-order: 12
+order: 13
 groupOrder: 1
 groupName: "Utils"
 name: "_.ObjAddStrKeySuffix"

@@ -83,3 +83,16 @@ export type ObjAddStrKeySuffix<Origin extends Record<string, any>, Suffix extend
   : never
   : never;
 };
+
+/**
+ * 给对象的 key(string) 增加 指定前缀
+ */
+export type ObjAddStrKeyPrefix<Origin extends Record<string, any>, Prefix extends string = ''> = {
+  [K in {
+    [K2 in keyof Origin]: K2 extends string ? `${Prefix}${Capitalize<K2>}` : never;
+  }[keyof Origin]]: K extends `${Prefix}${infer RK}`
+  ? RK extends string
+  ? Origin[Uncapitalize<RK>]
+  : never
+  : never;
+};
